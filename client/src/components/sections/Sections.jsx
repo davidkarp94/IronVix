@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './sections.css';
+import pepe from '../../assets/pepe.jpg'
 
 const data = [
     {
@@ -61,9 +62,30 @@ const Sections = () => {
         <div className="sections__content">
             {
                 data.map(({ name, color, id }) => {
+                    const sectionClassName = `${activeSection === name ? 'active' : (id < activeId ? 'left' : 'right')}`;
                     return (
-                        <div className={`main-section__content ${activeSection === name ? 'active' : (id < activeId ? 'left' : 'right')}`} style={{ backgroundColor: color}}>
-
+                        <div className={`main-section__content ${sectionClassName}`} style={{ backgroundColor: color}}>
+                            <div className={`main-section__content-photos ${sectionClassName}`}>
+                                {
+                                    sectionClassName === 'active' ?
+                                    <>
+                                    <img src={pepe} className='photo' />
+                                    <img src={pepe} className='photo' />
+                                    <img src={pepe} className='photo' />
+                                    <img src={pepe} className='photo' />
+                                    <img src={pepe} className='photo' />
+                                    <img src={pepe} className='photo' />
+                                    <img src={pepe} className='photo' />
+                                    <img src={pepe} className='photo' />
+                                    </> :
+                                    <>
+                                    <img src={pepe} className='photo' />
+                                    <img src={pepe} className='photo' />
+                                    <img src={pepe} className='photo' />
+                                    <img src={pepe} className='photo' />
+                                    </>
+                                }
+                            </div>
                         </div>
                     )
                 })
