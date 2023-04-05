@@ -1,0 +1,41 @@
+.sections__container {
+    display: flex;
+    flex-direction: column;
+}
+
+.sections__titles {
+    display: flex;
+    align-items: baseline;
+}
+
+.sections__content {
+    display: flex;
+    align-items: baseline;
+}
+
+.main-section__title {
+    padding: 1rem;
+    cursor: pointer;
+    width: 150px;
+    text-align: center;
+}
+
+.main-section__title h3 {
+    color: white;
+}
+
+.main-section__content {
+    height: 400px;
+}
+
+.main-section__content.active {
+    width: 400px;
+}
+
+.main-section__content.left {
+    width: 150px;
+}
+
+.main-section__content.right {
+    width: 150px;
+}
