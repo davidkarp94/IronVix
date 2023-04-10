@@ -27,31 +27,29 @@ const data = [
 
 const Sections = () => {
 
-    const [activeSection, setActiveSection] = useState('seccion 2');
+    const [activeSection, setActiveSection] = useState('seccion 1');
     const [activeId, setActiveId] = useState(1);
 
     const handleActiveSection = ({ name, id }) => {
         setActiveSection(name);
         setActiveId(id);
-      };
+    };
 
-      const [sectionColors, setSectionColors] = useState([]);
+    const [sectionColors, setSectionColors] = useState([]);
 
-      useEffect(() => {
+    useEffect(() => {
         setSectionColors(data.map(({ color }) => color));
-      }, []);
+    }, []); 
 
-    console.log(sectionColors)
-
-  return (
+return (
     <div className='sections__container'>
         <div className="sections__titles">
             {
                 data.map(({ name, color, id }) => {
                     return (
-                    <section key={id} style={{backgroundColor: color}}>
+                    <section key={id} style={{ boxShadow: `0px 0px 40px 1px ${color} inset` }}>
                         <div className='main-section__title' onClick={() => handleActiveSection ({ name, id })}>
-                            <h3>{name}</h3>
+                            <h3 style={{ color: color, filter: 'brightness(0.8)' }}>{name}</h3>
                         </div>
                     </section>
                     )
@@ -64,11 +62,15 @@ const Sections = () => {
                 data.map(({ name, color, id }) => {
                     const sectionClassName = `${activeSection === name ? 'active' : (id < activeId ? 'left' : 'right')}`;
                     return (
-                        <div className={`main-section__content ${sectionClassName}`} style={{ backgroundColor: color}}>
+                        <div className={`main-section__content ${sectionClassName}`} style={{ boxShadow: `0px 0px 60px 5px ${color} inset` }}>
                             <div className={`main-section__content-photos ${sectionClassName}`}>
                                 {
                                     sectionClassName === 'active' ?
                                     <>
+                                    <img src={pepe} className='photo' />
+                                    <img src={pepe} className='photo' />
+                                    <img src={pepe} className='photo' />
+                                    <img src={pepe} className='photo' />
                                     <img src={pepe} className='photo' />
                                     <img src={pepe} className='photo' />
                                     <img src={pepe} className='photo' />
@@ -93,7 +95,7 @@ const Sections = () => {
         </div>
 
     </div>
-  )
+)
 }
 
 export default Sections

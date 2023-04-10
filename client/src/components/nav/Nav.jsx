@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import logo from '../../assets/logo2.png';
 import './nav.css';
 import { BsFillBellFill, BsCartFill } from 'react-icons/bs';
@@ -8,18 +9,20 @@ const Nav = () => {
   return (
     <div className='nav__container'>
         <div className="nav__logo">
-            <img src={logo} alt="ironvix logo" />
+            <Link to='/' >
+                <img src={logo} alt="ironvix logo" />
+            </Link>
         </div>
 
         <div className="nav__menu">
-            <a href="#" className='nav__menu-link'>Inicio</a>
-            <a href="#" className='nav__menu-link'>Servicios</a>
+            <Link to='/' className='nav__menu-link'>Inicio</Link>
+            <Link to='/services' className='nav__menu-link'>Servicios</Link>
             <div className='nav__menu-link__container'>
-                <a href="#" className='nav__menu-link'>Productos</a>
+                <Link to='/products' className='nav__menu-link'>Productos</Link>
                 <img src={coming} alt="" className='coming-soon' />
             </div>
-            <a href="#" className='nav__menu-link'>Nosotros</a>
-            <a href="#" className='nav__menu-link'>Contactanos</a>
+            <Link to='about-us' className='nav__menu-link'>Nosotros</Link>
+            <Link to='contact' className='nav__menu-link'>Contactanos</Link>
         </div>
 
         <div className="nav__user">
